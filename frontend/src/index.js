@@ -1,1 +1,1 @@
-alert('index rodando')
+console.log('index rodando')
