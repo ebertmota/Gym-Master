@@ -1,0 +1,63 @@
+/* cards container */
+div.cards-container{
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+  margin: 0 auto;
+}
+
+
+/* individual cards */
+
+.students-card {
+  font-size: 16pt;
+  cursor: pointer;
+  display: block;
+  top: 0px;
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  background-color: rgba(223, 223, 223, 0.2);
+  border-radius: 4px;
+  padding: 32px 24px;
+  margin: 12px;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+  border: 1px solid #f2f8f9;
+  transition: all 0.2s ease-out;
+}
+.students-card:hover {
+  box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+  top: -4px;
+  border: 1px solid #cccccc;
+  background-color: white;
+}
+
+.students-card button.btn {
+  background-color: transparent;
+  font-size: 18px;
+  opacity: 0;
+  position: relative;
+  float: right;
+  /* ---*/
+  -webkit-transform: scale(0.8);
+     -moz-transform: scale(0.8);
+       -o-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-transition-duration: 0.5s;
+     -moz-transition-duration: 0.5s;
+       -o-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+
+.students-card button.btn:hover {
+  -webkit-transform: scale(1.1);
+     -moz-transform: scale(1.1);
+       -o-transform: scale(1.1);
+          transform: scale(1.1);
+}
+.students-card:hover.students-card button.btn {
+  opacity: 1;
+}
+

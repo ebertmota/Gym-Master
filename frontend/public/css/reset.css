@@ -11,3 +11,36 @@ div.container {
 a {
   text-decoration: none;
 }
+
+button, input {
+  outline: 0;
+}
+
+button.btn {
+  font-size: 13pt;
+  cursor: pointer;
+  padding: 10px; 
+  border: 1px solid rgba(0,0,0,.3);
+  border-radius: 6px;
+  background-color: transparent;
+  transition: all .2s linear;
+}
+
+button.btn-success {
+  color: rgb(0, 128, 0);
+  border: 1px solid rgba(0, 128, 0,.3);
+}
+button.btn-error {
+  color: rgb(255, 0, 0);
+  border: 1px solid rgba(255, 0, 0,.3);
+}
+
+/* my custom classes */
+
+.text-bold {
+  font-weight: bold;
+}
+
+.green-anchor {
+  color: rgb(0, 128, 0);
+}

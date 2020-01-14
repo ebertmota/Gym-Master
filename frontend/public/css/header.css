@@ -40,7 +40,7 @@ ul#navigation-links li a {
   padding: 5px;
 }
 :root {
-  --mainColor: #eb4015;
+  --mainColor: #1FEA00;
 }
 ul#navigation-links li a {
   background:
@@ -57,6 +57,7 @@ ul#navigation-links li a {
 }
 
 ul#navigation-links li:hover a {
+  color: rgb(37, 37, 37);
   background-size: 4px 50px;
 }
 
