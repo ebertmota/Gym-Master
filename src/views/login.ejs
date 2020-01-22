@@ -6,12 +6,13 @@
   <p class="sub-title">Entre com sua conta:</p>
 
   <div class="form-container">
-    <form>
+    <form method="POST" action="/auth/login">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
       <label for="email">E-mail:</label>
       <input type="text" name="email"/>
 
       <label for="password">Senha:</label>
-      <input type="text" name="password"/>
+      <input type="password" name="password"/>
 
       <a
       class="green-anchor" 

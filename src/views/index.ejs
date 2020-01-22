@@ -2,11 +2,12 @@
 
 <div class="search-container">
   <h1>Lista de Alunos</h1>
-  <form>
-    <input type="text" placeholder="Buscar..." />
+  <form id="search-form" onsubmit="">
+    <input name="searchInput"type="text" placeholder="Digite o nome do aluno que você procura..." />
     <button class="btn" id="submit-btn" type="submit"><i class="fas fa-search"></i></button>
   </form>
 </div>
+<%- include('includes/messages') %>
 
 
 

@@ -93,7 +93,14 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-console.log('index rodando');
+console.log('script loaded');
+var searchForm = document.getElementById('search-form');
+var searchInput = document.getElementsByName('searchInput');
+
+searchForm.onsubmit = function (event) {
+  event.preventDefault();
+  console.log(searchInput.value);
+};
 
 /***/ })
 
