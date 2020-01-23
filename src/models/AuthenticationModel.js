@@ -24,12 +24,42 @@ class Authentication {
 
   async register() {
     this.validate();
-    if (this.errors.lenght > 0) return;
+    if (this.errors.length > 0) return;
+
+    await this.userExists();
+
+    if (this.errors.length > 0) return;
 
     const salt = bcrypt.genSaltSync();
     this.body.password = bcrypt.hashSync(this.body.password, salt);
 
     this.user = await AuthenticationModel.create(this.body);
+  }
+
+
+  async login() {
+    this.validate();
+    if (this.errors.length > 0) return;
+    this.user = await AuthenticationModel.findOne({ email: this.body.email });
+    
+    if (!this.user) {
+      this.errors.push('Usuario não existe');
+      return;
+    }
+
+    if (!bcrypt.compareSync(this.body.password, this.user.password)) {
+      this.errors.push('Senha ou e-mail inválidos!')
+      this.user = null;
+      return;
+    }
+  }
+
+
+  async userExists() {
+    this.user = await AuthenticationModel.findOne({ email: this.body.email });
+    if (this.user) {
+      this.errors.push('Este usuário já existe')
+    }
   }
 
   //Valida o form
@@ -54,31 +84,12 @@ class Authentication {
         this.body[key] = '';
       }
     }
-
     this.body = {
       email: this.body.email,
       password: this.body.password,
     };
-
   }
 
-  async login() {
-    this.validate();
-    if (this.errors.length > 0) return;
-    this.user = await AuthenticationModel.findOne({ email: this.body.email });
-    
-    if (!this.user) {
-      this.errors.push('Usuario não existe');
-      return;
-    }
-
-    if (!bcrypt.compareSync(this.body.password, this.user.password)) {
-      this.errors.push('Senha ou e-mail inválidos!')
-      this.user = null;
-      return;
-    }
-
-  }
   
 
 }

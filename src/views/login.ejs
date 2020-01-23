@@ -5,6 +5,8 @@
   <h1 class="title">Login</h1>
   <p class="sub-title">Entre com sua conta:</p>
 
+  <%- include('includes/messages') %>
+
   <div class="form-container">
     <form method="POST" action="/auth/login">
       <input type="hidden" name="_csrf" value="<%= csrfToken %>">

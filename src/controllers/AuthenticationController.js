@@ -22,7 +22,8 @@ module.exports.login = async (req, res) => {
     const authentication = new Authentication(req.body);
     await authentication.login();
 
-    if (authentication.errors.length > 0) {
+
+    if (authentication.errors.length > 0){
       req.flash('errors', authentication.errors);
       req.session.save(() => {
         return res.redirect('back');
@@ -35,11 +36,10 @@ module.exports.login = async (req, res) => {
     req.session.save(() => {
       return res.redirect('back');
     })
-
   } catch (err) {
     console.log(err)
     return res.send('404');
-  }
+  } 
 }
 
 module.exports.register = async (req, res) => {
@@ -47,17 +47,18 @@ module.exports.register = async (req, res) => {
     const authentication = new Authentication(req.body);
     await authentication.register();
 
+
     if (authentication.errors.length > 0) {
-      req.flash('errors', authentication.errors);
-      req.session.save(() => {
-        return res.redirect('/');
-      });
-      return
+        req.flash('errors', authentication.errors);
+        req.session.save(() => {
+          return res.redirect('back');
+        });
+        return;
     }
 
     req.flash('success', 'Seu usuário foi cadastrado com sucesso !');
     req.session.save(() => {
-      return res.redirect('/auth/login');
+      return res.redirect('back');
     });
   } catch (err) {
     console.log(err)

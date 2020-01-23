@@ -2,26 +2,27 @@
 
 <div class="content">
   <h1>Cadastre um novo aluno</h1>
+  <%- include('includes/messages') %>
   
   <div class="form-container">
-    <form>
+    <form action="/students/create" method="POST" autocomplete="off">
       <label for="name">Nome:</label>
-      <input type="text" name="name"/>
+      <input type="text" value="" name="name"/>
   
       <label for="age">Idade:</label>
-      <input type="text" name="age"/>
+      <input type="text" value="" name="age" />
   
       <label for="address">Endereço:</label>
-      <input type="text" name="address"/>
+      <input type="text" value="" name="address"/>
   
       <label for="phone_number">Telefone:</label>
-      <input type="text" name="phone_number"/>
+      <input type="text" value="" name="phone_number"/>
       
       <label for="due_date">Data de Vencimento:</label>
-      <input type="text" name="due_date" />
+      <input type="text" value="" name="due_date" />
   
       <label for="situation">Situação:</label>
-      <input type="text" name="situation"/>
+      <input type="text" value="" name="situation"/>
   
       <button type="submit" class="btn btn-success">Concluir</button>
     </form>
