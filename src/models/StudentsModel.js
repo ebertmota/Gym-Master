@@ -75,11 +75,23 @@ class Student{
     this.body = {
       name: this.body.name,
       age: this.body.age,
-      adress: this.body.adress,
+      address: this.body.address,
       phone_number: this.body.phone_number,
       due_date: this.body.due_date,
       situation: this.body.situation,
     }
+  }
+
+  async findDebits() {
+    const student = await StudentModel.find(this.body.situation);
+    return student;
+  }
+
+  async edit(id) {
+    if (typeof id !== 'string') return;
+    this.validate();
+    if (this.errors.length > 0) return;
+    this.student = await StudentModel.findByIdAndUpdate(id, this.body, {new: true });
   }
 
   //static
@@ -102,5 +114,7 @@ class Student{
     return student;
   }
 }
+
+
 
 module.exports = Student;

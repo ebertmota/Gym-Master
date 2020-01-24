@@ -10,10 +10,12 @@ route.get('/', HomeController.index);
 
 // Students routes
 route.get('/students/status', loginRequired, StudentsController.status); 
+
 route.get('/students/new', loginRequired, StudentsController.new);
 route.post('/students/create', loginRequired, StudentsController.create);
-route.get('/students/delete/', loginRequired, StudentsController.delete);
-
+route.get('/students/delete/:id', loginRequired, StudentsController.delete);
+route.get('/students/edit/:id', loginRequired, StudentsController.searchIdForEditOrCreate);
+route.post('/students/edit/:id', loginRequired, StudentsController.edit);
 
 //Authentication routes
 route.get('/auth/login', AuthenticationController.loginPage);
@@ -21,5 +23,6 @@ route.get('/auth/logout', AuthenticationController.logout);
 route.get('/auth/register', AuthenticationController.registerPage)
 route.post('/auth/login', AuthenticationController.login);
 route.post('/auth/register', AuthenticationController.register);
+
 
 module.exports = route;

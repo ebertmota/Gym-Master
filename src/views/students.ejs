@@ -5,31 +5,40 @@
   <%- include('includes/messages') %>
   
   <div class="form-container">
-    <form action="/students/create" method="POST" autocomplete="off">
+    <% if (student._id) { %>
+      <form action="/students/edit/<%= student.id %>" method="POST" autocomplete="off">
+    <% } else {%>
+      <form action="/students/create" method="POST" autocomplete="off">
+    <% } %>
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
       <label for="name">Nome:</label>
-      <input type="text" value="" name="name"/>
-  
+      <input type="text" value="<%= student.name %>" name="name" id="name"/>
+
       <label for="age">Idade:</label>
-      <input type="text" value="" name="age" />
-  
+      <input type="text" value="<%= student.age %>" name="age" id="age"/>
+
       <label for="address">Endereço:</label>
-      <input type="text" value="" name="address"/>
-  
+      <input type="text" value="<%= student.address %>" name="address" id="address"/>
+
       <label for="phone_number">Telefone:</label>
-      <input type="text" value="" name="phone_number"/>
+      <input type="text" value="<%= student.phone_number %>" name="phone_number" id="phone_number"/>
       
       <label for="due_date">Data de Vencimento:</label>
-      <input type="text" value="" name="due_date" />
-  
-      <label for="situation">Situação:</label>
-      <input type="text" value="" name="situation"/>
-  
+      <input type="text" value="<%= student.due_date %>" name="due_date" id="due_date"/>
+      
+      <p>Mensalidade:</p>
+      <div class="checkbox-container">
+        <input type="radio" value="Não Paga" name="situation" id="not-payed-situation">
+        <label for="not-payed-situation">Não Paga</label>
+        <input type="radio" value="Paga" name="situation" id="payed-situation">
+        <label for="payed-situation">Paga</label>
+      </div>
+
+
       <button type="submit" class="btn btn-success">Concluir</button>
     </form>
   </div>
 </div>
-
-
 
 
 

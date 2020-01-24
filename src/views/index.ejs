@@ -3,6 +3,7 @@
 <div class="search-container">
   <h1>Lista de Alunos</h1>
   <form id="search-form">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
     <input name="searchInput"type="text" placeholder="Digite o nome do aluno que você procura..." />
     <button class="btn" id="submit-btn" type="submit"><i class="fas fa-search"></i></button>
   </form>
@@ -32,12 +33,14 @@
           <span class="text-bold">Data de vencimento:</span> <%= student.due_date %>
         </p>
         <p>
-          <span class="text-bold">Situação:</span> <%= student.situation %>
+          <span class="text-bold">Mensalidade:</span> <%= student.situation %>
         </p>
         <button class="btn btn-error">
           <a href="/students/delete/<%= student._id %>">Excluir</a>
         </button>
-        <button class="btn btn-success">Editar</button>
+        <button class="btn btn-success">
+          <a href="/students/edit/<%= student._id %>">Editar</a>
+        </button>
       </div>
   
     <% }); %>

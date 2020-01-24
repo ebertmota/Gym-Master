@@ -17,6 +17,29 @@ module.exports.registerPage = (req, res) => {
 
 //post functions
 
+module.exports.register = async (req, res) => {
+  try {
+    const authentication = new Authentication(req.body);
+    await authentication.register();
+
+
+    if (authentication.errors.length > 0) {
+        req.flash('errors', authentication.errors);
+        req.session.save(() => {
+          return res.redirect('back');
+        });
+        return;
+    }
+
+    req.flash('success', 'Seu usuário foi cadastrado com sucesso !');
+    req.session.save(() => {
+      return res.redirect('back');
+    });
+  } catch (err) {
+    console.log(err)
+  }
+};
+
 module.exports.login = async (req, res) => {
   try {
     const authentication = new Authentication(req.body);
@@ -40,33 +63,9 @@ module.exports.login = async (req, res) => {
     console.log(err)
     return res.send('404');
   } 
-}
-
-module.exports.register = async (req, res) => {
-  try {
-    const authentication = new Authentication(req.body);
-    await authentication.register();
-
-
-    if (authentication.errors.length > 0) {
-        req.flash('errors', authentication.errors);
-        req.session.save(() => {
-          return res.redirect('back');
-        });
-        return;
-    }
-
-    req.flash('success', 'Seu usuário foi cadastrado com sucesso !');
-    req.session.save(() => {
-      return res.redirect('back');
-    });
-  } catch (err) {
-    console.log(err)
-  }
-
-}
+};
 
 module.exports.logout = (req, res) => {
   req.session.destroy();
   res.redirect('/');
-}
+};

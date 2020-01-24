@@ -20,7 +20,7 @@
   text-align: left;
 }
 
-.form-container input {
+.form-container input[type=text] {
   font-size: 13pt;
   width: 800px;
   display: block;
@@ -31,7 +31,7 @@
   border: 1px solid rgba(175, 175, 175, 0.5);
   transition: all .2s linear;
 }
-.form-container input:hover {
+.form-container input[type=text]:hover {
   box-shadow: 0px 0px 0px 3px rgba(132, 197, 132,.2);
 }
 
@@ -40,13 +40,35 @@
   left: 0;
 }
 
-.form-container form button {
+.form-container form button[type=submit] {
   background-color: rgb(27, 160, 6);
   color: #fff;
   display: block;
   margin-top: 20px;
   width: 90px;
 }
-.form-container form button:hover {
-  background-color: rgb(11, 109, 11);
+.form-container form button[type=submit]:hover {
+  border-radius: 5px;
+  background-color: rgba(11, 109, 11,.5);
+}
+
+.checkbox-container { 
+  margin-top: 25px; 
+  margin-bottom: 65px;
+}
+.checkbox-container input[type="radio"] {
+  display: none;
+}
+
+.checkbox-container input[type="radio"] + label{
+  font-size: 20pt;
+  border-radius: 8px;
+  background: #ddd;
+  color: #999;
+  padding: 5px 15px;
+}
+
+.checkbox-container input[type="radio"]:checked + label {
+  color: #fff;
+  background: rgb(27, 160, 6);
 }
