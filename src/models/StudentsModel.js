@@ -40,6 +40,7 @@ class Student{
   constructor(body) {
     this.body = body;
     this.errors = [];
+    this.debits = [];
     this.student = null;
   }
 
@@ -54,10 +55,10 @@ class Student{
 
     //Validando campos obrigatorios
     if (!this.body.situation) {
-      this.errors.push('A situação do pagamento deve ser preenchida!')
+      this.errors.push('Você precisa marcar se o aluno pagou a mensalidade!')
     }
     if (!this.body.due_date) {
-      this.errors.push('A data de vencimento do aluno deve ser preenchida!')
+      this.errors.push('A data de vencimento da mensalidade deve ser preenchida!')
     }
     if (!this.body.name) {
       this.errors.push('O nome do aluno é um campo obrigatorio!')
@@ -82,11 +83,6 @@ class Student{
     }
   }
 
-  async findDebits() {
-    const student = await StudentModel.find(this.body.situation);
-    return student;
-  }
-
   async edit(id) {
     if (typeof id !== 'string') return;
     this.validate();
@@ -95,6 +91,17 @@ class Student{
   }
 
   //static
+
+  static async findDebits() {
+    const date = new Date();
+    const currentDate = date.getDate().toString();
+    //primeiro param do find vai ser os filtros
+    const student = await StudentModel.find({
+      due_date: {$lt: currentDate}, //se a data de vencimento é menor ($lt) que o currentDate
+      situation: 'Não Paga',
+    })
+    return student;
+  }
 
   static async searchStudents() {
     const student = await StudentModel.find()

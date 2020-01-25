@@ -24,7 +24,7 @@
       <input type="text" value="<%= student.phone_number %>" name="phone_number" id="phone_number"/>
       
       <label for="due_date">Data de Vencimento:</label>
-      <input type="text" value="<%= student.due_date %>" name="due_date" id="due_date"/>
+      <input type="number" min="1" max="31" value="<%= student.due_date %>" name="due_date" id="due_date"/>
       
       <p>Mensalidade:</p>
       <div class="checkbox-container">

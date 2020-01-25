@@ -1,29 +1,50 @@
-<%- include('includes/header') %>
+<%- include('includes/status-header') %>
+<div class="status-container">
 
+  <div class="search-container">
+    <h1>Mensalidades Vencidas</h1>
+  </div>
 
+  <%- include('includes/messages') %>
 
+  <div class="cards-container absolute-center">
 
+    <% if (student.length > 0) {%>
+      <% student.forEach((student) => { %>
+        <div class="students-card">
+          <p>
+            <span class="text-bold">Nome:</span> <%= student.name %>
+          </p>
+          <p>
+            <span class="text-bold">Idade:</span> <%= student.age %>
+          </p>
+          <p>
+            <span class="text-bold">Endereço:</span> <%= student.address %>
+          </p>
+          <p>
+            <span class="text-bold">Telefone:</span> <%= student.phone_number %>
+          </p>
+          <p>
+            <span class="text-bold">Data de vencimento:</span> <%= student.due_date %>
+          </p>
+          <p>
+            <span class="text-bold">Mensalidade:</span> <%= student.situation %>
+          </p>
+          <button class="btn btn-error">
+            <a href="/students/delete/<%= student._id %>">Excluir</a>
+          </button>
+          <button class="btn btn-success">
+            <a href="/students/edit/<%= student._id %>">Editar</a>
+          </button>
+        </div>
+    
+      <% }); %>
+    <% } else {%>
+      <p>Adicione seu primeiro aluno....</p>
+    <% } %>
+  </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 
 
 

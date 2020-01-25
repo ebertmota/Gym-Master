@@ -1,3 +1,5 @@
+const Student = require('../models/StudentsModel');
+
 //get routes
 
 module.exports.new = (req,res) => {
@@ -6,13 +8,13 @@ module.exports.new = (req,res) => {
   });
 };
 
-module.exports.status = (req, res) => {
+module.exports.status = async (req, res) => {
+  const student = await Student.findDebits();
   res.render('status', { student });
 };
 
 //post routes
 
-const Student = require('../models/StudentsModel');
 
 module.exports.create = async (req,res) => {
   try {
