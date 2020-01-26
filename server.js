@@ -48,10 +48,20 @@ app.use(helmet());
 app.use(csrf());
 
 // configurando middleware global
-const { checkMessages,checkCsrfError, csrfMiddleware } = require('./src/MiddleWares/GlobalMiddleware');
+const { checkMessages,checkCsrfError, csrfMiddleware, checkMontly } = require('./src/MiddleWares/GlobalMiddleware');
 app.use(checkMessages)
 app.use(checkCsrfError)
 app.use(csrfMiddleware)
+
+//        Definir todas as mensalidades como não paga 1 vez por mês
+const cron = require("node-cron");
+
+cron.schedule("5 19 1 * *", async (req, res) => { 
+  console.log('Checking situations...')
+  const Student = require('./src/models/StudentsModel');
+
+  const student = await Student.checkMontly();
+});
 
 
 

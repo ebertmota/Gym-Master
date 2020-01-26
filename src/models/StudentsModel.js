@@ -91,6 +91,15 @@ class Student{
   }
 
   //static
+  static async checkMontly() {
+    const date = new Date();
+    const currentDate = date.getDate().toString();
+    const student = await StudentModel.find()
+    const update = { situation: 'Não Paga' }
+    await StudentModel.updateMany(
+      {}
+      ,update, { new: true });
+  }
 
   static async findDebits() {
     const date = new Date();
@@ -100,6 +109,7 @@ class Student{
       due_date: {$lt: currentDate}, //se a data de vencimento é menor ($lt) que o currentDate
       situation: 'Não Paga',
     })
+      .sort({ due_date: -1 });
     return student;
   }
 
