@@ -1,8 +1,8 @@
-<%- include('includes/status-header') %>
+<%- include('includes/header') %>
 <div class="status-container">
 
   <div class="search-container">
-    <h1>Mensalidades Vencidas</h1>
+    <h1 class="title">Mensalidades Vencidas</h1>
   </div>
 
   <%- include('includes/messages') %>
@@ -40,7 +40,7 @@
     
       <% }); %>
     <% } else {%>
-      <p>Adicione seu primeiro aluno....</p>
+      <p>Nenhuma mensalidade vencida....</p>
     <% } %>
   </div>
 

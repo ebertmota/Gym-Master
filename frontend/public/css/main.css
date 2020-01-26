@@ -57,8 +57,8 @@ button.btn-error a {
   font-weight: bold;
 }
 
-.green-anchor {
-  color: rgb(0, 128, 0);
+.purple-anchor {
+  color: rgb(101, 69, 207);
 }
 
 
@@ -93,24 +93,4 @@ button.btn-error a {
   width: 100%;
   align-items: center;
   justify-content: center;
-}
-
-/* Students styles */
-
-.status-body {
-  color: #fff;
-  background: #363636;
-}
-.status-container .students-card {
-  margin-bottom: 35px;
-  color: #000;
-  background: #fff;
-}
-
-.status-container .search-container {
-  margin-bottom: 40px;
-}
-
-.status-container .students-card:hover {
-  box-shadow: 0px 4px 40px rgba(31, 234, 0,.4);
 }

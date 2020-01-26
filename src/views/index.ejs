@@ -1,7 +1,7 @@
 <%- include('includes/header') %>
 
 <div class="search-container">
-  <h1>Lista de Alunos</h1>
+  <h1 class="title">Lista de Alunos</h1>
   <form id="search-form">
     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
     <input name="searchInput"type="text" placeholder="Digite o nome do aluno que você procura..." />
@@ -12,7 +12,7 @@
 
 <div class="cards-container absolute-center">
 
-  <% if (student.length > 0) {%>
+  <% if (student.length > 0) { %>
     <% student.forEach((student) => { %>
       <div class="students-card">
         <p>

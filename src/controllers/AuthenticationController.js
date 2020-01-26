@@ -4,7 +4,7 @@ const Authentication = require('../models/AuthenticationModel');
 
 module.exports.loginPage = (req, res) => {
   if (req.session.user) {
-    return res.render('index');
+    return res.render('login');
   }
   res.render('login');
 };
@@ -57,7 +57,7 @@ module.exports.login = async (req, res) => {
     req.flash('success', 'Login efetuado com sucesso.');
     req.session.user = authentication.user;
     req.session.save(() => {
-      return res.redirect('back');
+      return res.redirect('/');
     })
   } catch (err) {
     console.log(err)
