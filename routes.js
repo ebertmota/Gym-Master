@@ -8,6 +8,7 @@ const { loginRequired } = require('./src/MiddleWares/GlobalMiddleware');
 
 route.get('/', HomeController.index);
 
+
 // Students routes
 route.get('/students/status', loginRequired, StudentsController.status); 
 

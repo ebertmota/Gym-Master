@@ -1,10 +1,10 @@
 <%- include('includes/header') %>
 
+
 <div class="search-container">
   <h1 class="title">Lista de Alunos</h1>
-  <form id="search-form">
-    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-    <input name="searchInput"type="text" placeholder="Digite o nome do aluno que você procura..." />
+  <form autocomplete="off">
+    <input name="search" id="search" type="text" placeholder="Digite o nome do aluno que você procura..." />
     <button class="btn" id="submit-btn" type="submit"><i class="fas fa-search"></i></button>
   </form>
 </div>

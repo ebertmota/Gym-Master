@@ -93,7 +93,26 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+console.log('script loaded');
+var submitBtn = document.getElementById('submit-btn');
+var searchInput = document.getElementById('search');
+submitBtn.addEventListener('click', function (event) {
+  event.preventDefault();
+  var str = searchInput.value;
 
+  if (window.find) //funcao de encontrar
+    {
+      strFound = self.find(str);
+
+      if (!strFound) {
+        strFound = self.find(str, 0, 1);
+
+        while (self.find(str, 0, 1)) {
+          continue;
+        }
+      }
+    }
+});
 
 /***/ })
 

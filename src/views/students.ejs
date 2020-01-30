@@ -1,7 +1,7 @@
 <%- include('includes/header') %>
 
 <div class="content">
-  <h1>Cadastre um novo aluno</h1>
+  <h1 class="title">Cadastre um novo aluno</h1>
   <%- include('includes/messages') %>
   
   <div class="form-container">
@@ -29,9 +29,9 @@
       <p>Mensalidade:</p>
       <div class="checkbox-container">
         <input type="radio" value="Não Paga" name="situation" id="not-payed-situation">
-        <label for="not-payed-situation">Não Paga</label>
+        <label for="not-payed-situation" class="not-payed">Não Paga</label>
         <input type="radio" value="Paga" name="situation" id="payed-situation">
-        <label for="payed-situation">Paga</label>
+        <label for="payed-situation" class="payed">Paga</label>
       </div>
 
 

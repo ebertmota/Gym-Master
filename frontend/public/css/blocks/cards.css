@@ -18,7 +18,7 @@ div.cards-container{
   position: relative;
   width: 100%;
   max-width: 900px;
-  background-color: #f1efff;
+  background-color: rgb(238, 238, 238);
   border-radius: 4px;
   padding: 32px 24px;
   margin: 12px;
@@ -62,3 +62,6 @@ div.cards-container{
   opacity: 1;
 }
 
+.status-card {
+  background-color: rgb(255, 216, 216);
+}
