@@ -23,7 +23,7 @@
     "helmet": "^3.21.2",
     "mongoose": "^5.8.9",
     "node-cron": "^2.0.3",
-    "validator": "^12.1.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.7",
